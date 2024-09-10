@@ -12,7 +12,7 @@ func Init(config ...Config) (error, string) {
 	for _, item := range config {
 		switch item.Driver {
 		case "mysql":
-			db, err = gorm.Open(mysql.Open(item.Dsn), item.Confgis)
+			db, err = gorm.Open(mysql.Open(item.Dsn), item.Config)
 		case "sqlsrv":
 			db, err = gorm.Open(sqlserver.Open(item.Dsn), item.Confgis)
 		}
