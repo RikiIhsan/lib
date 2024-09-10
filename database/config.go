@@ -6,7 +6,7 @@ type Config struct {
 	Name    string
 	Dsn     string
 	Driver  string
-	Confgis *gorm.Config
+	Config *gorm.Config
 }
 
 type session struct {
