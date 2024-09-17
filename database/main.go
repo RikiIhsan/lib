@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func Init(config ...Config) (error, string) {
+func Init(config ...Config) (string, error) {
 	var err error
 	var db *gorm.DB
 	for _, item := range config {
@@ -17,9 +17,9 @@ func Init(config ...Config) (error, string) {
 			db, err = gorm.Open(sqlserver.Open(item.Dsn), item.Config)
 		}
 		if err != nil {
-			return err, item.Name
+			return item.Name,err
 		}
 		Session[item.Name] = session{Name: item.Name, DB: db}
 	}
-	return nil, ""
+	return "",nil
 }
