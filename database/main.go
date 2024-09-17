@@ -14,7 +14,7 @@ func Init(config ...Config) (error, string) {
 		case "mysql":
 			db, err = gorm.Open(mysql.Open(item.Dsn), item.Config)
 		case "sqlsrv":
-			db, err = gorm.Open(sqlserver.Open(item.Dsn), item.Confgis)
+			db, err = gorm.Open(sqlserver.Open(item.Dsn), item.Config)
 		}
 		if err != nil {
 			return err, item.Name
